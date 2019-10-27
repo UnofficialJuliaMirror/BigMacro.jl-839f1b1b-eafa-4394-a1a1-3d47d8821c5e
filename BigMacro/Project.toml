@@ -1,0 +1,4 @@
+name = "BigMacro"
+uuid = "839f1b1b-eafa-4394-a1a1-3d47d8821c5e"
+authors = ["Nicholas Coltharp <nosewings@gmail.com>"]
+version = "0.1.0"
