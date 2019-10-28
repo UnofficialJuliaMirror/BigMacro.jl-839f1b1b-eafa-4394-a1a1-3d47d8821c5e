@@ -8,7 +8,7 @@ macro bigfloat(ex)
     prewalk(ex) do x
         try
             BigFloat(x)
-        catch _
+        catch
             x
         end
     end
@@ -26,7 +26,7 @@ macro bigint(ex)
     prewalk(ex) do x
         try
             BigInt(x)
-        catch _
+        catch
             x
         end
     end
