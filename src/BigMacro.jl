@@ -6,11 +6,7 @@ export @bigfloat, @bigint
 
 macro bigfloat(ex)
     prewalk(ex) do x
-        try
-            BigFloat(x)
-        catch
-            x
-        end
+        applicable(BigFloat, x) ? BigFloat(x) : x
     end
 end
 
@@ -24,11 +20,7 @@ end
 
 macro bigint(ex)
     prewalk(ex) do x
-        try
-            BigInt(x)
-        catch
-            x
-        end
+        applicable(BigInt, x) ? BigInt(x) : x
     end
 end
 
