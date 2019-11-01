@@ -5,12 +5,20 @@ using MacroTools: prewalk
 export @bigfloat, @bigint
 
 macro bigfloat(ex)
+    _esc(_bigfloat(ex))
+end
+
+function _bigfloat(ex)
     prewalk(ex) do x
         applicable(BigFloat, x) ? BigFloat(x) : x
     end
 end
 
-macro bigfloat(precision :: Int, ex)
+macro bigfloat(precision, ex)
+    _esc(_bigfloat(precision, ex))
+end
+
+function _bigfloat(precision, ex)
     quote
         setprecision($precision) do
             @bigfloat $ex
@@ -19,6 +27,10 @@ macro bigfloat(precision :: Int, ex)
 end
 
 macro bigint(ex)
+    esc(bigint(ex))
+end
+
+function _bigint(ex)
     prewalk(ex) do x
         applicable(BigInt, x) ? BigInt(x) : x
     end
