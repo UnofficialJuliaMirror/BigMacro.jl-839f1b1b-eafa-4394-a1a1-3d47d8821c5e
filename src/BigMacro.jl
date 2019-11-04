@@ -5,7 +5,7 @@ using MacroTools: prewalk
 export @bigfloat, @bigint
 
 macro bigfloat(ex)
-    _esc(_bigfloat(ex))
+    esc(_bigfloat(ex))
 end
 
 function _bigfloat(ex)
@@ -15,7 +15,7 @@ function _bigfloat(ex)
 end
 
 macro bigfloat(precision, ex)
-    _esc(_bigfloat(precision, ex))
+    esc(_bigfloat(precision, ex))
 end
 
 function _bigfloat(precision, ex)
@@ -27,7 +27,7 @@ function _bigfloat(precision, ex)
 end
 
 macro bigint(ex)
-    esc(bigint(ex))
+    esc(_bigint(ex))
 end
 
 function _bigint(ex)
